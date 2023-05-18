@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/main.css">
+  <title>AJAX with JavaScript</title>
+  <script>
+      //1. Create an XMLHTTP Request object
+    var xhr = new XMLHttpRequest();
+      //2. We create our callback to respond to that request
+    xhr.onreadystatechange = function(){
+      // if we've got the response back ! !! readySate
+      if (xhr.readyState === 4) {
+      // innerHTML is a property that contains all the HTML inside an element
+      // responseText is the info. that the web server sends back
+      // The Prog doesn't run til the response comes back from the server 
+        document.getElementById('ajax').innerHTML = xhr.responseText;
+      }
+    };
+      //3. Open function prepares he browser for sending the request
+      // .open('Method', 'URL'); 
+      // Get: send a req for data
+      // Post : If you're sending the data like info. from a form. for the server to save in the database
+      //URL is where the req is going
+      // open function just make a req, but not sending it.
+      xhr.open('GET', 'sidebar.html');
+    
+    function sendAJAX() {
+      //4. Send the request
+      xhr.send();
+      document.getElementById('load').style.display = "none";
+    }
+  </script>
+</head>
+<body>
+  <div class="grid-container centered">
+    <div class="grid-100"> 
+      <div class="contained">
+        <div class="grid-100">
+          <div class="heading">
+            <h1>Bring on the AJAX</h1>
+            <button id="load" onclick="sendAJAX()">Bring it!</button>
+          </div>
+          <div id="ajax">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

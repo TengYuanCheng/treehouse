@@ -1,0 +1,27 @@
+extends layout 
+
+block main 
+    section.namecard
+
+        .namecard-login   
+        
+            //- 4. Use if-else to show whether the name was present or not.
+            if name 
+                p.namecard-greeting Welcome, #{name} !
+                form.namecard-exit(action='/goodbye', method='POST')
+                    button(type='submit')
+                        img(src='/static/img/close.svg')
+            else 
+                p.namecard-greeting Hello, student! 
+            //- 5. if function has "form" inside the name card
+            //- whether else function dont
+            //- -> That's why he Declared the intro block nested in the name card
+        block intro
+    block card
+//- After 7. That's 8
+//- 8.The card front and card back with the less design files to work with.
+//- They were really just the same template with the unique content inside this section
+//- which is outside of the namecard section
+
+//- 9. In this app template, HE put a block with card to place the contet
+//- as the next sibiling of the name card section

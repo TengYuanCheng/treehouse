@@ -1,0 +1,30 @@
+extends app
+//- 10. declare the card block with the remaining content.
+block card
+  section(class=`flashcards`)
+    //- 11. Starting with the divs classes,
+    //- It can either be "card-question" or "card-answer"
+    //- so type "card-${side}"
+    .card(class=`card-${side}`)
+      .card-header
+      //- The text content is capitalized, but when I discovered this page when HE viewed in the web browser - > The acpitalization didn't matter.
+      //- The text is converted by the CSS to be all caps
+      //- That will make codes simpler
+      h1.card-title= side 
+      #content 
+        h2= text 
+        //- 12. we can use the variables that are using to set the class
+        //- 13. HE replaced the dummy hint with a hint local variable
+        if hint 
+          p.hint 
+            i=hint 
+
+      .card-flip-wrap 
+        //- 14.To provide the link to the view to the other side of the card
+        //- HE just modified the link here
+        a(href=`${id}?side=${sideToShow}`)
+          img.card-flip(src='/static/img/flip.svg')
+      .card-next
+        a(href='/cards')
+          img(src="/static/img/next.svg")
+    script(src='/static/js/app.js')

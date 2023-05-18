@@ -1,0 +1,14 @@
+extends layout
+
+block main 
+section.desk
+  //- 3. HE replaced the dummy text with the locals sent from the app
+  //- error message as error.message
+  //- error status as error.status
+  //- error stack as error.stack
+  h1 = `${error.message} - Status: ${error.status}`
+  img.desk-itms(src='/static/img/desk.svg')
+  a.button-primary-small(href='/') Go Home 
+  .paper 
+    per.stack-trace= error.stack
+  .tear

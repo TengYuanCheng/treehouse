@@ -1,0 +1,13 @@
+//- 6. When the hello template is rendered, 
+//- it'll extend the app
+//- and THEN it'll extend the layout(cuz app.pug will extend laout)
+
+//- This is a way to training templates together 
+extends app
+
+//- declare an intro block, with the "form" nested inside 
+block intro
+    form.namecard-form(action='/hello', method='post')
+      label.namecard-prompt Please enter you name:
+        input.namecard-name(type='text', name='username')
+      button.namecard-submit(type='submit') Submit
